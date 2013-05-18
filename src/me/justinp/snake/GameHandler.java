@@ -1,12 +1,20 @@
 package me.justinp.snake;
 
+import me.justinp.snake.entity.Food;
+import me.justinp.snake.entity.Snake;
+import me.justinp.snake.misc.Location;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
+import java.util.Random;
+
 import static org.lwjgl.opengl.GL11.*;
 
 public class GameHandler {
+
+    Snake snake = new Snake();
+    Food food;
 
     private void start() {
         try {
@@ -19,11 +27,15 @@ public class GameHandler {
             System.exit(-1);
         }
 
+        Random random = new Random();
+        food = new Food(new Location(
+                (float) random.nextInt(Display.getWidth() - 1),
+                (float) random.nextInt(Display.getHeight() - 1)));
         initGL();
 
         while (!Display.isCloseRequested()) {
             glClear(GL_COLOR_BUFFER_BIT);
-
+            food.draw();
             Display.update();
         }
 
