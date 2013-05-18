@@ -1,3 +1,5 @@
+package me.justinp.snake;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -21,9 +23,7 @@ public class GameHandler {
 
         while (!Display.isCloseRequested()) {
             glClear(GL_COLOR_BUFFER_BIT);
-            glColor3f(0, 1, 0);
-            //test
-            glRectf(50, 50, 100, 100);
+
             Display.update();
         }
 
@@ -43,7 +43,7 @@ public class GameHandler {
     }
 
     public static void main(String[] args) {
-        GameHandler handler = new GameHandler();
+        me.justinp.snake.GameHandler handler = new me.justinp.snake.GameHandler();
         handler.start();
     }
 }
