@@ -55,7 +55,7 @@ public class GameHandler {
     }
 
     public static void main(String[] args) {
-        me.justinp.snake.GameHandler handler = new me.justinp.snake.GameHandler();
+        GameHandler handler = new GameHandler();
         handler.start();
     }
 }

@@ -6,6 +6,7 @@ import static org.lwjgl.opengl.GL11.glRectf;
 
 public class Food {
 
+    //TODO: Add a method to check if Snake has eaten the food
     private Location location;
 
     public Food(Location location) {
