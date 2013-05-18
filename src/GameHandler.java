@@ -22,7 +22,7 @@ public class GameHandler {
         while (!Display.isCloseRequested()) {
             glClear(GL_COLOR_BUFFER_BIT);
             glColor3f(0, 1, 0);
-
+            //test
             glRectf(50, 50, 100, 100);
             Display.update();
         }
