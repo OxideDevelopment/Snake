@@ -2,8 +2,10 @@ package com.github.oxidedevelopment.snake;
 
 import com.github.oxidedevelopment.snake.entity.Food;
 import com.github.oxidedevelopment.snake.entity.Snake;
+import com.github.oxidedevelopment.snake.misc.Direction;
 import com.github.oxidedevelopment.snake.misc.Location;
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
@@ -13,7 +15,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class GameHandler {
 
-    Snake snake = new Snake();
+    Snake snake;
     Food food;
 
     private void start() {
@@ -31,10 +33,14 @@ public class GameHandler {
         food = new Food(new Location(
                 (float) random.nextInt(Display.getWidth() - 1),
                 (float) random.nextInt(Display.getHeight() - 1)));
+
+        snake = new Snake(new Location(0, 0), 3, Direction.Right);
         initGL();
 
         while (!Display.isCloseRequested()) {
             glClear(GL_COLOR_BUFFER_BIT);
+            pollKeyboard();
+            snake.draw();
             food.draw();
             Display.update();
         }
@@ -42,8 +48,20 @@ public class GameHandler {
         Display.destroy();
     }
 
+    private void pollKeyboard() {
+        if (Keyboard.isKeyDown(Keyboard.KEY_UP))
+            snake.setDirection(Direction.Up);
+        else if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
+            snake.setDirection(Direction.Left);
+        else if (Keyboard.isKeyDown(Keyboard.KEY_DOWN))
+            snake.setDirection(Direction.Down);
+        else if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
+            snake.setDirection(Direction.Right);
+    }
+
 
     private void initGL() {
+        //TODO: Remove unneeded openGL calls..
         glEnable(GL_TEXTURE_2D);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
