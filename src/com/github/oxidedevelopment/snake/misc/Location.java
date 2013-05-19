@@ -1,4 +1,4 @@
-package me.justinp.snake.misc;
+package com.github.oxidedevelopment.snake.misc;
 
 /**
  * Created with IntelliJ IDEA.

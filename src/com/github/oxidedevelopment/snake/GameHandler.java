@@ -1,8 +1,8 @@
-package me.justinp.snake;
+package com.github.oxidedevelopment.snake;
 
-import me.justinp.snake.entity.Food;
-import me.justinp.snake.entity.Snake;
-import me.justinp.snake.misc.Location;
+import com.github.oxidedevelopment.snake.entity.Food;
+import com.github.oxidedevelopment.snake.entity.Snake;
+import com.github.oxidedevelopment.snake.misc.Location;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;

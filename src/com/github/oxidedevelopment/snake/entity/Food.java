@@ -1,6 +1,6 @@
-package me.justinp.snake.entity;
+package com.github.oxidedevelopment.snake.entity;
 
-import me.justinp.snake.misc.Location;
+import com.github.oxidedevelopment.snake.misc.Location;
 
 import static org.lwjgl.opengl.GL11.glRectf;
 
